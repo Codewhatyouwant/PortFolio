@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="contact.css">
+</head>
+
+<body>
+    <div class="container">
+        <nav>
+            <div class="Logo">
+                <p><span>Port</span>folio<b>.</b></p>
+            </div>
+            <ul class="navItems">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="About.html">About</a></li>
+                <li><a href="portfolionew.html">Portfolio</a></li>
+                <li><a href="contact.html" style="color: blueviolet;">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="contact">
+            <div class="obj1"></div>
+            <div class="contact-form">
+                <h1>Contact <span style="color: #7f00ff">Us</span></h1>
+                <p>I am available for freelance work Contact With me <span class="multiText"></span>
+                </p>
+                <form action="">
+                    <input type="text" id="name" placeholder="Full Name:" required>
+
+                    <input type="email" id="email" name="email" placeholder="Email:"  required>
+
+                    <input type="phone" id="phone" placeholder="Phone No:"  required>
+
+                    <textarea name="" id="msg" cols="30" rows="10" placeholder="Your Message:"  required>
+
+                </textarea>
+                    <input type="submit" value="submit" class="btn" onclick="Send()">
+                </form>
+            </div>
+            <div class="image">
+                <img src="Mukesh.png" alt="" id="photo">
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <script>
+        var typingEffect = new Typed(".multiText", {
+            strings: ["Gmail: mukeshkumhar906@gmail.com", "Instagram: @mukeshkumhar906",],
+            loop: true,
+            typeSpeed: 100,
+            backSpeed: 80,
+            backDelay: 3500
+        })
+    </script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        function Send() {
+
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var phone = document.getElementById("phone").value;
+            var msg = document.getElementById("msg").value;
+
+            var body = "Name: " + name + "<br/>Email: " + email + "<br/>Contact No: " + phone + "<br/>Message: " + msg;
+
+            console.log(body);
+
+            console.log("function call");
+            Email.send({
+                Host: "smtp.elasticemail.com",
+                Username: "loved4743@gmail.com",
+                Password: "EC054C25B3C281408CAA191D00745C212D50",
+                To: 'loved4743@gmail.com',
+                From: "loved4743@gmail.com",
+                Subject: "contacting from portfolio website",
+                Body: body
+            }).then(
+                message => alert(message)
+            );
+
+
+            // Email.send({
+            //     Host: "smtp.elasticemail.com",
+            //     Username: "loved4743@gmail.com",
+            //     Password: "EC054C25B3C281408CAA191D00745C212D50",
+            //     To: "loved4743@gmail.com",
+            //     From: "loved4743@gmail.com",
+            //     name: document.getElementById("name"),
+            //     Subject: "contacting from your website",
+            //     mobile_No: document.getElementById("phone"),
+            //     email: document.getElementById("email"),
+            //     Body:
+            //         "Name: " +
+            //         document.getElementById("name").value +
+            //         "<br> Email: " +
+            //         document.getElementById("email").value +
+            //         "<br> Message: " +
+            //         document.getElementById("msg").value,
+            // }).then((message) => alert(message));
+        }
+    </script>
+</body>
+
+</html>
